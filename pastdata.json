@@ -1,0 +1,328 @@
+{
+  "data": [
+    {
+      "supplier": "TDC精密工業株式会社",
+      "currency": "JPY",
+      "estimates": [
+        {
+          "estimate_id": "SE-2025-01",
+          "date": "2025-01-15",
+          "products": [
+            {
+              "product_name": "制御盤B",
+              "product_cost": 1000000,
+              "installation_cost": 500000,
+              "commissioning_cost": 100000
+            }
+          ],
+          "total_amount": 1600000
+        },
+        {
+          "estimate_id": "SE-2025-02",
+          "date": "2025-02-15",
+          "products": [
+            {
+              "product_name": "制御盤C",
+              "product_cost": 850000,
+              "installation_cost": 447500,
+              "commissioning_cost": 85000
+            }
+          ],
+          "total_amount": 1382500
+        },
+        {
+          "estimate_id": "SE-2025-03",
+          "date": "2025-03-15",
+          "products": [
+            {
+              "product_name": "制御盤D",
+              "product_cost": 1600000,
+              "installation_cost": 710000,
+              "commissioning_cost": 160000
+            }
+          ],
+          "total_amount": 2470000
+        },
+        {
+          "estimate_id": "SE-2025-04",
+          "date": "2025-04-15",
+          "products": [
+            {
+              "product_name": "制御盤A",
+              "product_cost": 1100000,
+              "installation_cost": 535000,
+              "commissioning_cost": 110000
+            }
+          ],
+          "total_amount": 1745000
+        },
+        {
+          "estimate_id": "SE-2025-05",
+          "date": "2025-05-15",
+          "products": [
+            {
+              "product_name": "制御盤B",
+              "product_cost": 2000000,
+              "installation_cost": 850000,
+              "commissioning_cost": 200000
+            }
+          ],
+          "total_amount": 3050000
+        },
+        {
+          "estimate_id": "SE-2025-06",
+          "date": "2025-06-15",
+          "products": [
+            {
+              "product_name": "制御盤C",
+              "product_cost": 900000,
+              "installation_cost": 465000,
+              "commissioning_cost": 90000
+            }
+          ],
+          "total_amount": 1455000
+        },
+        {
+          "estimate_id": "SE-2025-07",
+          "date": "2025-07-15",
+          "products": [
+            {
+              "product_name": "制御盤D",
+              "product_cost": 1700000,
+              "installation_cost": 745000,
+              "commissioning_cost": 170000
+            }
+          ],
+          "total_amount": 2615000
+        },
+        {
+          "estimate_id": "SE-2025-08",
+          "date": "2025-08-15",
+          "products": [
+            {
+              "product_name": "制御盤A",
+              "product_cost": 1200000,
+              "installation_cost": 570000,
+              "commissioning_cost": 120000
+            }
+          ],
+          "total_amount": 1890000
+        },
+        {
+          "estimate_id": "SE-2025-09",
+          "date": "2025-09-15",
+          "products": [
+            {
+              "product_name": "制御盤B",
+              "product_cost": 2100000,
+              "installation_cost": 885000,
+              "commissioning_cost": 210000
+            }
+          ],
+          "total_amount": 3195000
+        },
+        {
+          "estimate_id": "SE-2025-10",
+          "date": "2025-10-15",
+          "products": [
+            {
+              "product_name": "制御盤C",
+              "product_cost": 950000,
+              "installation_cost": 482500,
+              "commissioning_cost": 95000
+            }
+          ],
+          "total_amount": 1527500
+        },
+        {
+          "estimate_id": "SE-2025-11",
+          "date": "2025-11-15",
+          "products": [
+            {
+              "product_name": "制御盤D",
+              "product_cost": 1800000,
+              "installation_cost": 780000,
+              "commissioning_cost": 180000
+            }
+          ],
+          "total_amount": 2760000
+        },
+        {
+          "estimate_id": "SE-2025-12",
+          "date": "2025-12-15",
+          "products": [
+            {
+              "product_name": "制御盤A",
+              "product_cost": 1300000,
+              "installation_cost": 605000,
+              "commissioning_cost": 130000
+            }
+          ],
+          "total_amount": 2035000
+        }
+      ]
+    },
+    {
+      "supplier": "TDC制御株式会社",
+      "currency": "JPY",
+      "estimates": [
+        {
+          "estimate_id": "SC-2025-01",
+          "date": "2025-01-15",
+          "products": [
+            {
+              "product_name": "制御盤B",
+              "product_cost": 1200000,
+              "installation_cost": 230000,
+              "commissioning_cost": 100000
+            }
+          ],
+          "total_amount": 1530000
+        },
+        {
+          "estimate_id": "SC-2025-02",
+          "date": "2025-02-15",
+          "products": [
+            {
+              "product_name": "制御盤C",
+              "product_cost": 1020000,
+              "installation_cost": 207500,
+              "commissioning_cost": 85000
+            }
+          ],
+          "total_amount": 1312500
+        },
+        {
+          "estimate_id": "SC-2025-03",
+          "date": "2025-03-15",
+          "products": [
+            {
+              "product_name": "制御盤D",
+              "product_cost": 1920000,
+              "installation_cost": 320000,
+              "commissioning_cost": 160000
+            }
+          ],
+          "total_amount": 2400000
+        },
+        {
+          "estimate_id": "SC-2025-04",
+          "date": "2025-04-15",
+          "products": [
+            {
+              "product_name": "制御盤A",
+              "product_cost": 1320000,
+              "installation_cost": 245000,
+              "commissioning_cost": 110000
+            }
+          ],
+          "total_amount": 1675000
+        },
+        {
+          "estimate_id": "SC-2025-05",
+          "date": "2025-05-15",
+          "products": [
+            {
+              "product_name": "制御盤B",
+              "product_cost": 2400000,
+              "installation_cost": 380000,
+              "commissioning_cost": 200000
+            }
+          ],
+          "total_amount": 2980000
+        },
+        {
+          "estimate_id": "SC-2025-06",
+          "date": "2025-06-15",
+          "products": [
+            {
+              "product_name": "制御盤C",
+              "product_cost": 1080000,
+              "installation_cost": 215000,
+              "commissioning_cost": 90000
+            }
+          ],
+          "total_amount": 1385000
+        },
+        {
+          "estimate_id": "SC-2025-07",
+          "date": "2025-07-15",
+          "products": [
+            {
+              "product_name": "制御盤D",
+              "product_cost": 2040000,
+              "installation_cost": 335000,
+              "commissioning_cost": 170000
+            }
+          ],
+          "total_amount": 2545000
+        },
+        {
+          "estimate_id": "SC-2025-08",
+          "date": "2025-08-15",
+          "products": [
+            {
+              "product_name": "制御盤A",
+              "product_cost": 1440000,
+              "installation_cost": 260000,
+              "commissioning_cost": 120000
+            }
+          ],
+          "total_amount": 1820000
+        },
+        {
+          "estimate_id": "SC-2025-09",
+          "date": "2025-09-15",
+          "products": [
+            {
+              "product_name": "制御盤B",
+              "product_cost": 2520000,
+              "installation_cost": 395000,
+              "commissioning_cost": 210000
+            }
+          ],
+          "total_amount": 3125000
+        },
+        {
+          "estimate_id": "SC-2025-10",
+          "date": "2025-10-15",
+          "products": [
+            {
+              "product_name": "制御盤C",
+              "product_cost": 1140000,
+              "installation_cost": 222500,
+              "commissioning_cost": 95000
+            }
+          ],
+          "total_amount": 1457500
+        },
+        {
+          "estimate_id": "SC-2025-11",
+          "date": "2025-11-15",
+          "products": [
+            {
+              "product_name": "制御盤D",
+              "product_cost": 2160000,
+              "installation_cost": 350000,
+              "commissioning_cost": 180000
+            }
+          ],
+          "total_amount": 2690000
+        },
+        {
+          "estimate_id": "SC-2025-12",
+          "date": "2025-12-15",
+          "products": [
+            {
+              "product_name": "制御盤A",
+              "product_cost": 1560000,
+              "installation_cost": 275000,
+              "commissioning_cost": 130000
+            }
+          ],
+          "total_amount": 1965000
+        }
+      ]
+    }
+  ]
+}
