@@ -1,0 +1,19 @@
+{
+  "supplier": "TDC精密工業株式会社",
+  "currency": "JPY",
+  "estimates": [
+    {
+      "estimate_id": "EST-2026-01",
+      "date": "2026-01-16",
+      "products": [
+        {
+          "product_name": "制御盤B",
+          "product_cost": 1200000,
+          "installation_cost": 400000,
+          "commissioning_cost": 200000
+        }
+      ],
+      "total_amount": 1665000
+    }
+ ]
+}
