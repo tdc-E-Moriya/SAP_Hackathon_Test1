@@ -1,116 +1,170 @@
-#サプライヤ抽出のみ
-
 import json
 import statistics
+from collections import defaultdict
+from groq import Groq
+from dotenv import load_dotenv
+import os
+
+def normalize_product_name(name):
+    return name.split("（")[0]
+
+THRESHOLD = 0.2
 
 # =========================
-# 設定
-# =========================
-THRESHOLD = 0.2  # 20%
-
-file_2025 = "pastdata.json"
-file_2026 = "currentdata.json"
-
-# =========================
-# データ読み込み
+# ✅ 過去データ読み込み（そのまま）
 # =========================
 def load_past(file):
     with open(file, "r", encoding="utf-8") as f:
         return json.load(f)["data"]
 
-def load_current(file):
-    with open(file, "r", encoding="utf-8") as f:
-        data = json.load(f)
-        return data["supplier"], data["estimates"][0]
-
-past_data_all = load_past(file_2025)
-current_supplier, current_data = load_current(file_2026)
-
-# =========================
-# サプライヤー抽出
-# =========================
 def extract_supplier(data, supplier_name):
-    for supplier in data:
-        if supplier["supplier"] == supplier_name:
-            return supplier["estimates"]
+    for s in data:
+        if s["supplier"] == supplier_name:
+            return s["estimates"]
     return []
 
-data_2025 = extract_supplier(past_data_all, current_supplier)
-
 # =========================
-# 統計値計算
+# ✅ メイン関数化（ここが重要）
 # =========================
-values = [d["total_amount"] for d in data_2025]
+def analyze_risk(current_json, past_file="pastdata.json"):
 
-avg_2025 = statistics.mean(values)
-median_2025 = statistics.median(values)
+    current_supplier = current_json["supplier"]
+    current_data = current_json["estimates"][0]
 
-# 標準偏差（2件以上必要）
-std_2025 = statistics.stdev(values) if len(values) > 1 else 0
+    past_data_all = load_past(past_file)
+    past_data = extract_supplier(past_data_all, current_supplier)
 
-# =========================
-# 現在データ
-# =========================
-current_value = current_data["total_amount"]
+    product_groups = defaultdict(lambda: {
+        "amount": [],
+        "unit_price": [],
+        "quantity": []
+    })
 
-# =========================
-# 差分計算
-# =========================
-diff_avg = current_value - avg_2025
-rate_avg = diff_avg / avg_2025
+    for item in past_data:
+        for p in item["products"]:
+            name = normalize_product_name(p["product_name"])
 
-diff_median = current_value - median_2025
-rate_median = diff_median / median_2025
+            product_groups[name]["amount"].append(p["amount"])
+            product_groups[name]["unit_price"].append(p["unit_price"])
+            product_groups[name]["quantity"].append(p["quantity"])
 
-# =========================
-# 標準偏差ベース異常検知（Zスコア）
-# =========================
-if std_2025 > 0:
-    z_score = (current_value - avg_2025) / std_2025
-else:
-    z_score = 0
+    def calc_stats(values, current):
+        avg = statistics.mean(values)
+        median = statistics.median(values)
+        std = statistics.stdev(values) if len(values) > 1 else 0
 
-# ルール例
-is_anomaly_rate = abs(rate_avg) >= THRESHOLD
-is_anomaly_z = abs(z_score) >= 2  # ±2σ
+        diff = current - avg
+        rate = diff / avg if avg != 0 else 0
+        z = (current - avg) / std if std > 0 else 0
 
-# =========================
-# summary
-# =========================
-summary = {
-    "supplier": current_supplier,
-    "current_month": current_data["date"][:7],
+        return {
+            "avg": int(avg),
+            "median": int(median),
+            "stddev": int(std),
+            "diff": int(diff),
+            "rate": round(rate * 100, 2),
+            "z_score": round(z, 2),
+            "anomaly_rate": abs(rate) >= THRESHOLD,
+            "anomaly_zscore": abs(z) >= 2
+        }
 
-    # 統計
-    "past_avg": int(avg_2025),
-    "past_median": int(median_2025),
-    "past_stddev": int(std_2025),
+    # ----------------------
+    # 商品分析
+    # ----------------------
+    analysis_result = []
 
-    # 現在
-    "current_value": current_value,
+    for p in current_data["products"]:
+        name = normalize_product_name(p["product_name"])
 
-    # 差分
-    "diff_avg": int(diff_avg),
-    "rate_avg": round(rate_avg * 100, 2),
+        if name not in product_groups:
+            continue
 
-    "diff_median": int(diff_median),
-    "rate_median": round(rate_median * 100, 2),
+        stats = {}
 
-    # 異常判定
-    "z_score": round(z_score, 2),
-    "anomaly_rate": is_anomaly_rate,
-    "anomaly_zscore": is_anomaly_z
-}
+        for key in ["amount", "unit_price", "quantity"]:
+            stats[key] = calc_stats(
+                product_groups[name][key],
+                p[key]
+            )
 
-# =========================
-# 出力
-# =========================
-final_output = {
-    "summary": summary
-}
+        analysis_result.append({
+            "product": name,
+            "analysis": stats
+        })
 
-print(json.dumps(final_output, ensure_ascii=False, indent=2))
+    # ----------------------
+    # トータル
+    # ----------------------
+    total_values = [item["total_amount"] for item in past_data]
 
-# 保存
-#with open("analysis_output.json", "w", encoding="utf-8") as f:
-#    json.dump(final_output, f, ensure_ascii=False, indent=2)
+    total_stats = calc_stats(
+        total_values,
+        current_data["total_amount"]
+    )
+
+    result = {
+        "supplier": current_supplier,
+        "current_month": current_data["date"][:7],
+        "total_analysis": total_stats,
+        "products": analysis_result
+    }
+
+    # ----------------------
+    # LLM
+    # ----------------------
+    load_dotenv()
+    client = Groq(api_key=os.getenv("LLM_API_KEY"))
+
+    prompt = f"""
+あなたは製造業の見積分析の専門家です。
+
+以下のJSONデータをもとに、
+全体および各商品ごとのリスクを分析してください。
+回答はJSON型のみにし、```これもなしにしてください。
+# 入力データ
+{json.dumps(result, ensure_ascii=False)}
+
+# 分析観点
+- total_analysis → 全体リスク
+- products → 商品別リスク
+- anomaly_rate / z_score を必ず使う
+- quantity急増はリスク
+- unit_price上昇はコスト増
+- 構成バランスの崩れも考慮
+- reasonはリスクの根拠を説明
+- mail_header / mail_bodyは全体リスクがHighかMediumの場合に、リスクで挙げられた部分を確認するメールを作成。文章は敬語でかつ簡潔に確認点は箇条書き（改行コードはなし）で説明。
+- 件名は「見積回答についてご確認」、本文は「ご担当者様 平素よりお世話になっております。見積内容について、以下の点を確認させてください。」で始める。ご担当者様の前に仕入先名を入れてください。
+# 出力形式
+{{
+  "supplier": "...",
+  "overall_risk": "High / Medium / Low",
+  "total": {{
+    "risk": "...",
+    "reason": "..."
+  }},
+  "products": [
+    {{
+      "product": "...",
+      "risk": "...",
+      "reason": "...",
+      "validation": "妥当 / 注意 / 要確認"
+    }}
+  ]
+  "mail_header": "件名",
+  "mail_body": "本文"
+}}
+"""
+
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": "分析AI"},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.2
+    )
+
+    return {
+        "stat_result": result,
+        "llm_result": response.choices[0].message.content
+    }
