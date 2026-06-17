@@ -1,326 +1,211 @@
 {
   "data": [
     {
-      "supplier": "TDC精密工業株式会社",
+      "supplier": "大和精密工業株式会社",
       "currency": "JPY",
       "estimates": [
         {
-          "estimate_id": "SE-2025-01",
-          "date": "2025-01-15",
+          "estimate_id": "Q-2021-01",
+          "date": "2021-01-15",
           "products": [
             {
-              "product_name": "制御盤B",
-              "product_cost": 1000000,
-              "installation_cost": 500000,
-              "commissioning_cost": 100000
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 1,
+              "unit_price": 1600000,
+              "amount": 1600000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 1,
+              "unit_price": 650000,
+              "amount": 650000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 1,
+              "unit_price": 1200000,
+              "amount": 1200000
             }
           ],
-          "total_amount": 1600000
+          "total_amount": 3450000
         },
         {
-          "estimate_id": "SE-2025-02",
-          "date": "2025-02-15",
+          "estimate_id": "Q-2021-02",
+          "date": "2021-04-15",
           "products": [
             {
-              "product_name": "制御盤C",
-              "product_cost": 850000,
-              "installation_cost": 447500,
-              "commissioning_cost": 85000
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 2,
+              "unit_price": 1650000,
+              "amount": 3300000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 2,
+              "unit_price": 660000,
+              "amount": 1320000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 1,
+              "unit_price": 1220000,
+              "amount": 1220000
             }
           ],
-          "total_amount": 1382500
+          "total_amount": 5840000
+        },
+
+        {
+          "estimate_id": "Q-2022-01",
+          "date": "2022-01-15",
+          "products": [
+            {
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 1,
+              "unit_price": 1700000,
+              "amount": 1700000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 1,
+              "unit_price": 680000,
+              "amount": 680000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 2,
+              "unit_price": 1250000,
+              "amount": 2500000
+            }
+          ],
+          "total_amount": 4880000
         },
         {
-          "estimate_id": "SE-2025-03",
-          "date": "2025-03-15",
+          "estimate_id": "Q-2022-02",
+          "date": "2022-04-15",
           "products": [
             {
-              "product_name": "制御盤D",
-              "product_cost": 1600000,
-              "installation_cost": 710000,
-              "commissioning_cost": 160000
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 2,
+              "unit_price": 1720000,
+              "amount": 3440000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 2,
+              "unit_price": 690000,
+              "amount": 1380000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 1,
+              "unit_price": 1270000,
+              "amount": 1270000
             }
           ],
-          "total_amount": 2470000
+          "total_amount": 6090000
+        },
+
+        {
+          "estimate_id": "Q-2023-01",
+          "date": "2023-01-15",
+          "products": [
+            {
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 2,
+              "unit_price": 1750000,
+              "amount": 3500000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 1,
+              "unit_price": 720000,
+              "amount": 720000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 1,
+              "unit_price": 1300000,
+              "amount": 1300000
+            }
+          ],
+          "total_amount": 5520000
         },
         {
-          "estimate_id": "SE-2025-04",
-          "date": "2025-04-15",
+          "estimate_id": "Q-2023-02",
+          "date": "2023-04-15",
           "products": [
             {
-              "product_name": "制御盤A",
-              "product_cost": 1100000,
-              "installation_cost": 535000,
-              "commissioning_cost": 110000
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 3,
+              "unit_price": 1780000,
+              "amount": 5340000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 2,
+              "unit_price": 730000,
+              "amount": 1460000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 1,
+              "unit_price": 1350000,
+              "amount": 1350000
             }
           ],
-          "total_amount": 1745000
+          "total_amount": 8150000
+        },
+
+        {
+          "estimate_id": "Q-2024-01",
+          "date": "2024-01-15",
+          "products": [
+            {
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 2,
+              "unit_price": 1800000,
+              "amount": 3600000
+            },
+            {
+              "product_name": "配線・組付作業費",
+              "quantity": 2,
+              "unit_price": 740000,
+              "amount": 1480000
+            },
+            {
+              "product_name": "設置・調整工事費",
+              "quantity": 2,
+              "unit_price": 1400000,
+              "amount": 2800000
+            }
+          ],
+          "total_amount": 7880000
         },
         {
-          "estimate_id": "SE-2025-05",
-          "date": "2025-05-15",
+          "estimate_id": "Q-2024-02",
+          "date": "2024-04-15",
           "products": [
             {
-              "product_name": "制御盤B",
-              "product_cost": 2000000,
-              "installation_cost": 850000,
-              "commissioning_cost": 200000
-            }
-          ],
-          "total_amount": 3050000
-        },
-        {
-          "estimate_id": "SE-2025-06",
-          "date": "2025-06-15",
-          "products": [
+              "product_name": "制御パネル本体（更新用）型番：CTL-450X",
+              "quantity": 1,
+              "unit_price": 1850000,
+              "amount": 1850000
+            },
             {
-              "product_name": "制御盤C",
-              "product_cost": 900000,
-              "installation_cost": 465000,
-              "commissioning_cost": 90000
-            }
-          ],
-          "total_amount": 1455000
-        },
-        {
-          "estimate_id": "SE-2025-07",
-          "date": "2025-07-15",
-          "products": [
+              "product_name": "配線・組付作業費",
+              "quantity": 1,
+              "unit_price": 750000,
+              "amount": 750000
+            },
             {
-              "product_name": "制御盤D",
-              "product_cost": 1700000,
-              "installation_cost": 745000,
-              "commissioning_cost": 170000
+              "product_name": "設置・調整工事費",
+              "quantity": 1,
+              "unit_price": 1450000,
+              "amount": 1450000
             }
           ],
-          "total_amount": 2615000
-        },
-        {
-          "estimate_id": "SE-2025-08",
-          "date": "2025-08-15",
-          "products": [
-            {
-              "product_name": "制御盤A",
-              "product_cost": 1200000,
-              "installation_cost": 570000,
-              "commissioning_cost": 120000
-            }
-          ],
-          "total_amount": 1890000
-        },
-        {
-          "estimate_id": "SE-2025-09",
-          "date": "2025-09-15",
-          "products": [
-            {
-              "product_name": "制御盤B",
-              "product_cost": 2100000,
-              "installation_cost": 885000,
-              "commissioning_cost": 210000
-            }
-          ],
-          "total_amount": 3195000
-        },
-        {
-          "estimate_id": "SE-2025-10",
-          "date": "2025-10-15",
-          "products": [
-            {
-              "product_name": "制御盤C",
-              "product_cost": 950000,
-              "installation_cost": 482500,
-              "commissioning_cost": 95000
-            }
-          ],
-          "total_amount": 1527500
-        },
-        {
-          "estimate_id": "SE-2025-11",
-          "date": "2025-11-15",
-          "products": [
-            {
-              "product_name": "制御盤D",
-              "product_cost": 1800000,
-              "installation_cost": 780000,
-              "commissioning_cost": 180000
-            }
-          ],
-          "total_amount": 2760000
-        },
-        {
-          "estimate_id": "SE-2025-12",
-          "date": "2025-12-15",
-          "products": [
-            {
-              "product_name": "制御盤A",
-              "product_cost": 1300000,
-              "installation_cost": 605000,
-              "commissioning_cost": 130000
-            }
-          ],
-          "total_amount": 2035000
-        }
-      ]
-    },
-    {
-      "supplier": "TDC制御株式会社",
-      "currency": "JPY",
-      "estimates": [
-        {
-          "estimate_id": "SC-2025-01",
-          "date": "2025-01-15",
-          "products": [
-            {
-              "product_name": "制御盤B",
-              "product_cost": 1200000,
-              "installation_cost": 230000,
-              "commissioning_cost": 100000
-            }
-          ],
-          "total_amount": 1530000
-        },
-        {
-          "estimate_id": "SC-2025-02",
-          "date": "2025-02-15",
-          "products": [
-            {
-              "product_name": "制御盤C",
-              "product_cost": 1020000,
-              "installation_cost": 207500,
-              "commissioning_cost": 85000
-            }
-          ],
-          "total_amount": 1312500
-        },
-        {
-          "estimate_id": "SC-2025-03",
-          "date": "2025-03-15",
-          "products": [
-            {
-              "product_name": "制御盤D",
-              "product_cost": 1920000,
-              "installation_cost": 320000,
-              "commissioning_cost": 160000
-            }
-          ],
-          "total_amount": 2400000
-        },
-        {
-          "estimate_id": "SC-2025-04",
-          "date": "2025-04-15",
-          "products": [
-            {
-              "product_name": "制御盤A",
-              "product_cost": 1320000,
-              "installation_cost": 245000,
-              "commissioning_cost": 110000
-            }
-          ],
-          "total_amount": 1675000
-        },
-        {
-          "estimate_id": "SC-2025-05",
-          "date": "2025-05-15",
-          "products": [
-            {
-              "product_name": "制御盤B",
-              "product_cost": 2400000,
-              "installation_cost": 380000,
-              "commissioning_cost": 200000
-            }
-          ],
-          "total_amount": 2980000
-        },
-        {
-          "estimate_id": "SC-2025-06",
-          "date": "2025-06-15",
-          "products": [
-            {
-              "product_name": "制御盤C",
-              "product_cost": 1080000,
-              "installation_cost": 215000,
-              "commissioning_cost": 90000
-            }
-          ],
-          "total_amount": 1385000
-        },
-        {
-          "estimate_id": "SC-2025-07",
-          "date": "2025-07-15",
-          "products": [
-            {
-              "product_name": "制御盤D",
-              "product_cost": 2040000,
-              "installation_cost": 335000,
-              "commissioning_cost": 170000
-            }
-          ],
-          "total_amount": 2545000
-        },
-        {
-          "estimate_id": "SC-2025-08",
-          "date": "2025-08-15",
-          "products": [
-            {
-              "product_name": "制御盤A",
-              "product_cost": 1440000,
-              "installation_cost": 260000,
-              "commissioning_cost": 120000
-            }
-          ],
-          "total_amount": 1820000
-        },
-        {
-          "estimate_id": "SC-2025-09",
-          "date": "2025-09-15",
-          "products": [
-            {
-              "product_name": "制御盤B",
-              "product_cost": 2520000,
-              "installation_cost": 395000,
-              "commissioning_cost": 210000
-            }
-          ],
-          "total_amount": 3125000
-        },
-        {
-          "estimate_id": "SC-2025-10",
-          "date": "2025-10-15",
-          "products": [
-            {
-              "product_name": "制御盤C",
-              "product_cost": 1140000,
-              "installation_cost": 222500,
-              "commissioning_cost": 95000
-            }
-          ],
-          "total_amount": 1457500
-        },
-        {
-          "estimate_id": "SC-2025-11",
-          "date": "2025-11-15",
-          "products": [
-            {
-              "product_name": "制御盤D",
-              "product_cost": 2160000,
-              "installation_cost": 350000,
-              "commissioning_cost": 180000
-            }
-          ],
-          "total_amount": 2690000
-        },
-        {
-          "estimate_id": "SC-2025-12",
-          "date": "2025-12-15",
-          "products": [
-            {
-              "product_name": "制御盤A",
-              "product_cost": 1560000,
-              "installation_cost": 275000,
-              "commissioning_cost": 130000
-            }
-          ],
-          "total_amount": 1965000
+          "total_amount": 4050000
         }
       ]
     }
