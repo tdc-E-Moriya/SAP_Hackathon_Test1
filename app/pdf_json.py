@@ -1,31 +1,25 @@
 import fitz  # PyMuPDF
-import os
 import json
 import re
+import os
 
 from groq import Groq
 from dotenv import load_dotenv
 
 load_dotenv()
-
 client = Groq(api_key=os.getenv("LLM_API_KEY"))
 
-# ------------------------------
-# ① PDF → テキスト抽出（OCRなし）
-# ------------------------------
-def extract_text(pdf_path):
-    # print("▶ PyMuPDF テキスト抽出中...")
 
-    doc = fitz.open(pdf_path)
+# ------------------------------
+# ✅ ① バイトデータ直接処理
+# ------------------------------
+def extract_text_from_bytes(file_bytes):
+    doc = fitz.open(stream=file_bytes, filetype="pdf")
 
     text = ""
 
-    for i, page in enumerate(doc):
-        page_text = page.get_text()
-
-        # print(f"▶ ページ {i+1}: {len(page_text)}文字")
-
-        text += page_text + "\n"
+    for page in doc:
+        text += page.get_text() + "\n"
 
     return text
 
@@ -48,7 +42,7 @@ def safe_json_parse(text):
 # ------------------------------
 def extract_structured_data(text):
     prompt = f"""
-以下の日本語の見積書テキストから情報を抽出し、指定のJSON形式で出力してください。
+以下の日本語の見積書テキストから情報を抽出し、JSON形式で出力してください。
 
 【出力形式】
 {{
@@ -107,28 +101,10 @@ def extract_structured_data(text):
 
 
 # ------------------------------
-# ④ メイン処理
+# ✅ ④ main関数（bytes対応）
 # ------------------------------
-def pdf_to_json(pdf_path):
-    # print(f"▶ 処理開始: {pdf_path}")
-
-    text = extract_text(pdf_path)
-
-    # print("▶ 抽出テキスト（先頭500文字）:")
-    # print(text[:500])
-
+def pdf_to_json_bytes(file_bytes):
+    text = extract_text_from_bytes(file_bytes)
     result = extract_structured_data(text)
-
     return result
-
-
-# ------------------------------
-# ⑤ 実行
-# ------------------------------
-if __name__ == "__main__":
-    pdf_path = "sample.pdf"
-
-    result = pdf_to_json(pdf_path)
-
-    # print("\n▶ JSON結果:")
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    

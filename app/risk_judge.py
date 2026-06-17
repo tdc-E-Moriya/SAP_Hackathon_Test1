@@ -26,7 +26,7 @@ def extract_supplier(data, supplier_name):
 # =========================
 # ✅ メイン関数化（ここが重要）
 # =========================
-def analyze_risk(current_json, past_file="pastdata.json"):
+def analyze_risk(current_json, past_file="data/pastdata.json"):
 
     current_supplier = current_json["supplier"]
     current_data = current_json["estimates"][0]
