@@ -7,7 +7,7 @@ from app.risk_judge import analyze_risk
 
 app = FastAPI()
 
-PDF_PATH = "./pdfs/sample.pdf"  # ← 固定PDF
+PDF_PATH = "../pdfs/sample.pdf"  # ← 固定PDF
 
 @app.get("/analyze")
 def analyze_pdf():
