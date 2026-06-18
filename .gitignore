@@ -3,4 +3,8 @@
 .env.*
 
 #サンプルpdf
-見積もりサンプル.pdf
+pdfs/
+
+
+__pycache__/
+*.pyc
