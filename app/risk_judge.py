@@ -131,13 +131,14 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 - quantity急増はリスク
 - unit_price上昇はコスト増
 - 構成バランスの崩れも考慮
-- reasonはリスクの根拠を説明
+- reasonはリスクの根拠を文章で説明。例）金額が過去実績と比較して高額となっています。根拠の確認が必要です。
 - mail_header / mail_bodyは全体リスクがHighかMediumの場合に、リスクで挙げられた部分を確認するメールを作成。文章は敬語でかつ簡潔に確認点は箇条書き（改行コードはなし）で説明。
 - 件名は「見積回答についてご確認」、本文は「ご担当者様 平素よりお世話になっております。見積内容について、以下の点を確認させてください。」で始める。ご担当者様の前に仕入先名を入れてください。
+- overall_riskは全体的な評価。過去との差異が5%未満であればsafety,10%未満であればwarning,20%未満であればcaution,20%以上でerrorとしてください。
 # 出力形式
 {{
   "supplier": "...",
-  "overall_risk": "High / Medium / Low",
+  "overall_risk": "error / caution / warning / safety",
   "total": {{
     "risk": "...",
     "reason": "..."
@@ -145,9 +146,8 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   "products": [
     {{
       "product": "...",
-      "risk": "...",
-      "reason": "...",
-      "validation": "妥当 / 注意 / 要確認"
+      "risk": "error / caution / warning / safety",
+      "reason": "..."
     }}
   ]
   "mail_header": "件名",
