@@ -48,10 +48,10 @@ def extract_structured_data(text):
 {{
   "supplier": string,
   "currency": "JPY",
-  "estimate_id": string,
-  "date": "YYYY-MM-DD",
   "estimates": [
     {{
+      "estimate_id": string,
+      "date": "YYYY-MM-DD",
       "products": [
         {{
           "product_name": string,
