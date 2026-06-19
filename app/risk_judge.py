@@ -194,7 +194,7 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 # 出力形式
 {{
   "supplier": "...",
-  "overall_risk": "error / caution / warning / safety",
+  "overall_risk": "High（リスク高） / Midium（リスク中） / Low（リスク小）",
   "total": {{
     "risk": "...",
     "validation": "error / caution / warning / safety",
