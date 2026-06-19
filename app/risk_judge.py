@@ -183,18 +183,18 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 {{
   "supplier": "...",
   "overall_risk": "error / caution / warning / safety",
-  "total": {
+  "total": {{
     "risk": "...",
     "validation": "error / caution / warning / safety",
     "reason": "..."
-  },
+  }},
   "products": [
-    {
+    {{
       "product": "...",
       "risk": "...",
       "validation": "error / caution / warning / safety",
       "reason": "..."
-    }
+    }}
   ],
   "mail_header": "...",
   "mail_body": "..."
