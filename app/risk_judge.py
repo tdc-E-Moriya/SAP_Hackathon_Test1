@@ -121,38 +121,84 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 以下のJSONデータをもとに、
 全体および各商品ごとのリスクを分析してください。
 回答はJSON型のみにし、```これもなしにしてください。
+
 # 入力データ
 {json.dumps(result, ensure_ascii=False)}
 
+# 重要ルール（厳守）
+- 商品ごとに評価ロジックを切り替えること
+- 以下2つは個別に扱うこと（まとめない）
+  ① 配線・組付作業費 → 金額のみ評価
+  ② 設置・調整工事費 → 金額のみ評価
+- 上記以外は通常の商品（物品）として扱う
+
 # 分析観点
+■ 共通
 - total_analysis → 全体リスク
 - products → 商品別リスク
-- anomaly_rate / z_score を必ず使う
-- quantity急増はリスク
-- unit_price上昇はコスト増
-- 構成バランスの崩れも考慮
-- reasonはリスクの根拠を文章で説明。例）金額が過去実績と比較して高額となっています。根拠の確認が必要です。
-- mail_header / mail_bodyは全体リスクがHighかMediumの場合に、リスクで挙げられた部分を確認するメールを作成。文章は敬語でかつ簡潔に確認点は箇条書き（改行コードはなし）で説明。
-- 件名は「見積回答についてご確認」、本文は「ご担当者様 平素よりお世話になっております。見積内容について、以下の点を確認させてください。」で始める。ご担当者様の前に仕入先名を入れてください。
-- overall_riskは全体的な評価。過去との差異が5%未満であればsafety,10%未満であればwarning,20%未満であればcaution,20%以上でerrorとしてください。
+- anomaly_rate / z_score を必ず算出して判断に含める
+- 過去実績との比較を必ず行う
+- 構成バランス（構成比の変化）も評価
+- riskは必ず過去実績と比較して具体的に記載をし、確認が必要な場合はその旨を記載してください。
+- reasonはproduct+riskを要約して回答。例）金額の高騰、数量の異常値、費用未発生など
+
+■ 商品（物品）の場合
+- quantity：過去平均比での急増 → リスク
+- unit_price：上昇 → コスト増リスク
+- amount：増減 → 全体影響
+- anomaly_rate / z_score は以下を対象
+  - quantity
+  - unit_price
+  - amount
+
+■ 配線・組付作業費（個別ルール）
+- quantityは評価しない（常に1想定）
+- unit_price と amount のみ評価
+- 過去平均との差異・変動率を重視
+- anomaly_rate / z_score は amount を元に算出
+- 作業内容に対して金額が過大かどうかの観点で評価
+
+■ 設置・調整工事費（個別ルール）
+- quantityは評価しない（常に1想定）
+- unit_price と amount のみ評価
+- 過去平均との差異・変動率を重視
+- anomaly_rate / z_score は amount を元に算出
+- 工事規模に対する金額の妥当性観点で評価
+
+■ 全体評価
+- overall_riskは以下ルール
+  - 差異5%未満 → safety
+  - 差異10%未満 → warning
+  - 差異20%未満 → caution
+  - 差異20%以上 → error
+
+■ メール生成条件
+- overall_riskが caution または error の場合のみ作成
+- 件名：「見積回答についてご確認」
+- 本文：
+  「（仕入先名）ご担当者様 平素よりお世話になっております。見積内容について、以下の点を確認させてください。」で開始
+- リスク項目を簡潔に箇条書き（改行コードなし）
+
 # 出力形式
-{{
+{
   "supplier": "...",
   "overall_risk": "error / caution / warning / safety",
-  "total": {{
+  "total": {
     "risk": "...",
+    "validation": "error / caution / warning / safety",
     "reason": "..."
-  }},
+  },
   "products": [
-    {{
+    {
       "product": "...",
-      "risk": "error / caution / warning / safety",
+      "risk": "...",
+      "validation": "error / caution / warning / safety",
       "reason": "..."
-    }}
-  ]
-  "mail_header": "件名",
-  "mail_body": "本文"
-}}
+    }
+  ],
+  "mail_header": "...",
+  "mail_body": "..."
+}
 """
 
     response = client.chat.completions.create(

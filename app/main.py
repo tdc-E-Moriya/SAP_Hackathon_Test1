@@ -48,8 +48,11 @@ def analyze_pdf():
         # ------------------------------
         # ✅ ⑤ レスポンス
         # ------------------------------
+        print({
+            "parsed": json_data,
+            "result": llm_json
+        })
         return {
-            "file": os.path.basename(PDF_PATH),
             "parsed": json_data,
             "result": llm_json
         }

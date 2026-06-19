@@ -41,9 +41,9 @@
             },
             {
               "product_name": "配線・組付作業費",
-              "quantity": 2,
+              "quantity": 1,
               "unit_price": 660000,
-              "amount": 1320000
+              "amount": 660000
             },
             {
               "product_name": "設置・調整工事費",
@@ -52,9 +52,8 @@
               "amount": 1220000
             }
           ],
-          "total_amount": 5840000
+          "total_amount": 5180000
         },
-
         {
           "estimate_id": "Q-2022-01",
           "date": "2022-01-15",
@@ -73,12 +72,12 @@
             },
             {
               "product_name": "設置・調整工事費",
-              "quantity": 2,
+              "quantity": 1,
               "unit_price": 1250000,
-              "amount": 2500000
+              "amount": 1250000
             }
           ],
-          "total_amount": 4880000
+          "total_amount": 3630000
         },
         {
           "estimate_id": "Q-2022-02",
@@ -92,9 +91,9 @@
             },
             {
               "product_name": "配線・組付作業費",
-              "quantity": 2,
+              "quantity": 1,
               "unit_price": 690000,
-              "amount": 1380000
+              "amount": 690000
             },
             {
               "product_name": "設置・調整工事費",
@@ -103,9 +102,8 @@
               "amount": 1270000
             }
           ],
-          "total_amount": 6090000
+          "total_amount": 5400000
         },
-
         {
           "estimate_id": "Q-2023-01",
           "date": "2023-01-15",
@@ -143,9 +141,9 @@
             },
             {
               "product_name": "配線・組付作業費",
-              "quantity": 2,
+              "quantity": 1,
               "unit_price": 730000,
-              "amount": 1460000
+              "amount": 730000
             },
             {
               "product_name": "設置・調整工事費",
@@ -154,9 +152,8 @@
               "amount": 1350000
             }
           ],
-          "total_amount": 8150000
+          "total_amount": 7420000
         },
-
         {
           "estimate_id": "Q-2024-01",
           "date": "2024-01-15",
@@ -169,18 +166,18 @@
             },
             {
               "product_name": "配線・組付作業費",
-              "quantity": 2,
+              "quantity": 1,
               "unit_price": 740000,
-              "amount": 1480000
+              "amount": 740000
             },
             {
               "product_name": "設置・調整工事費",
-              "quantity": 2,
+              "quantity": 1,
               "unit_price": 1400000,
-              "amount": 2800000
+              "amount": 1400000
             }
           ],
-          "total_amount": 7880000
+          "total_amount": 5740000
         },
         {
           "estimate_id": "Q-2024-02",
