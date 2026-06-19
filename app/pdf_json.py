@@ -63,6 +63,7 @@ def extract_structured_data(text):
       "total_amount": number
     }}
   ]
+  "comments": string
 }}
 
 【抽出ルール】
@@ -76,7 +77,7 @@ def extract_structured_data(text):
 - 明細ごとに1レコード
 - 日本語はそのまま使用
 - JSONのみ出力
-
+- commentsには【備考・条件】などの情報
 【補足】
 - 単価 → unit_price
 - 金額 → amount

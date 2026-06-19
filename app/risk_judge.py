@@ -180,6 +180,10 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 
 ■ total[validation]について
   - productsのvalidationの中に一つでもerrorがあればHigh（リスク高）,一つでもcautionがあるかwarningが2つ以上あればMidium（リスク中）,それ以外をLow（リスク小）と設定してください
+
+■ comments_riskについて
+ - comments_riskは、commentsの費用や日程など会社に影響ある情報があればそれを要約し記載
+  
 ■ メール生成条件
 - overall_riskが caution または error の場合のみ作成
 - 件名：「見積回答についてご確認」
@@ -193,17 +197,31 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   "overall_risk": "error / caution / warning / safety",
   "total": {{
     "risk": "...",
-    "validation": "High（リスク高）/ Midium（リスク中）/ Low（リスク小）",
+    "validation": "error / caution / warning / safety",
     "reason": "..."
   }},
   "products": [
     {{
       "product": "...",
-      "risk": "...",
-      "validation": "error / caution / warning / safety",
-      "reason": "..."
+
+      "quantity": {{
+        "risk": "...",
+        "validation": "error / caution / warning / safety",
+        "reason": "..."
+      }},
+
+      "amount": {{
+        "risk": "...",
+        "validation": "error / caution / warning / safety",
+        "reason": "..."
+      }}
     }}
   ],
+  "comments_risk": {{
+      "risk": "...",
+    "validation": "error / caution / warning / safety",
+    "reason": "..."
+  }},
   "mail_header": "...",
   "mail_body": "..."
 }}
