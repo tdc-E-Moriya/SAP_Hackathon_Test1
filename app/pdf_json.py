@@ -52,6 +52,7 @@ def extract_structured_data(text):
     {{
       "estimate_id": string,
       "date": "YYYY-MM-DD",
+      "title": string
       "products": [
         {{
           "product_name": string,
@@ -78,6 +79,7 @@ def extract_structured_data(text):
 - 日本語はそのまま使用
 - JSONのみ出力
 - commentsには【備考・条件】などの情報
+- titleは「件名」を設定
 【補足】
 - 単価 → unit_price
 - 金額 → amount
