@@ -180,7 +180,7 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 - リスク項目を簡潔に箇条書き（改行コードなし）
 
 # 出力形式
-{
+{{
   "supplier": "...",
   "overall_risk": "error / caution / warning / safety",
   "total": {
@@ -198,7 +198,7 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   ],
   "mail_header": "...",
   "mail_body": "..."
-}
+}}
 """
 
     response = client.chat.completions.create(

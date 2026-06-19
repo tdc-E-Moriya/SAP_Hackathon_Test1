@@ -17,13 +17,13 @@ def analyze_pdf():
         # ------------------------------
         if not os.path.exists(PDF_PATH):
             raise HTTPException(status_code=404, detail="PDF not found")
-        print(0)
+
         # ------------------------------
         # ✅ ① バイト読み込み
         # ------------------------------
         with open(PDF_PATH, "rb") as f:
             file_bytes = f.read()
-        print(1)
+
         # ------------------------------
         # ✅ ② PDF → JSON
         # ------------------------------
@@ -31,12 +31,12 @@ def analyze_pdf():
 
         if not json_data:
             raise Exception("PDF parse failed")
-        print(2)
+
         # ------------------------------
         # ✅ ③ リスク分析
         # ------------------------------
         result = analyze_risk(json_data)
-        print(3)
+
         # ------------------------------
         # ✅ ④ LLM結果整形
         # ------------------------------
@@ -44,7 +44,7 @@ def analyze_pdf():
             llm_json = json.loads(result["llm_result"])
         except:
             llm_json = result["llm_result"]
-        print(4)
+
         # ------------------------------
         # ✅ ⑤ レスポンス
         # ------------------------------
