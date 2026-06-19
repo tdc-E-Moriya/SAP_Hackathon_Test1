@@ -48,10 +48,12 @@ def extract_structured_data(text):
 {{
   "supplier": string,
   "currency": "JPY",
+  "estimate_id": string,
+  "date": "YYYY-MM-DD",
+  "total_amount": number,
+  "comments": string,
   "estimates": [
     {{
-      "estimate_id": string,
-      "date": "YYYY-MM-DD",
       "products": [
         {{
           "product_name": string,
@@ -59,11 +61,9 @@ def extract_structured_data(text):
           "unit_price": number,
           "amount": number
         }}
-      ],
-      "total_amount": number
+      ]   
     }}
   ]
-  "comments": string
 }}
 
 【抽出ルール】
