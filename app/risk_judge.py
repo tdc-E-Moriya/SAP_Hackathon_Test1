@@ -139,8 +139,14 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 - anomaly_rate / z_score を必ず算出して判断に含める
 - 過去実績との比較を必ず行う
 - 構成バランス（構成比の変化）も評価
-- riskは必ず過去実績と比較して具体的に記載をし、確認が必要な場合はその旨を記載してください。
-- reasonはproduct+riskを要約して回答。例）金額の高騰、数量の異常値、費用未発生など
+- risk：
+  数値を含めた分析結果（客観的事実ベース）
+  ※必ず「過去平均比」「増減率」などを含める
+- reason：
+  リスクの種類を1フレーズで分類（ラベル）
+  ※原因カテゴリのみ（例：価格高騰、数量異常、費用未発生、構成変化）
+  ※文章にしない
+
 
 ■ 商品（物品）の場合
 - quantity：過去平均比での急増 → リスク
@@ -166,12 +172,14 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 - 工事規模に対する金額の妥当性観点で評価
 
 ■ 全体評価
-- overall_riskは以下ルール
+- overall_risk,products[validation]は以下ルール
   - 差異5%未満 → safety
   - 差異10%未満 → warning
   - 差異20%未満 → caution
   - 差異20%以上 → error
 
+■ total[validation]について
+  - productsのvalidationの中に一つでもerrorがあればHigh（リスク高）,一つでもcautionがあるかwarningが2つ以上あればMidium（リスク中）,それ以外をLow（リスク小）と設定してください
 ■ メール生成条件
 - overall_riskが caution または error の場合のみ作成
 - 件名：「見積回答についてご確認」
@@ -185,7 +193,7 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   "overall_risk": "error / caution / warning / safety",
   "total": {{
     "risk": "...",
-    "validation": "error / caution / warning / safety",
+    "validation": "High（リスク高）/ Midium（リスク中）/ Low（リスク小）",
     "reason": "..."
   }},
   "products": [
