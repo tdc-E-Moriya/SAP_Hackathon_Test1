@@ -173,7 +173,6 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 
 ■ 全体評価
 - overall_risk,products[validation]は以下ルール
-  - 差異5%未満 → safety
   - 差異10%未満 → warning
   - 差異20%未満 → caution
   - 差異20%以上 → error
@@ -189,7 +188,7 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 - 件名：「見積回答についてご確認」
 - 本文：
   「（仕入先名）ご担当者様 平素よりお世話になっております。見積内容について、以下の点を確認させてください。」で開始
-- リスク項目を簡潔に箇条書き（改行コードなし）
+- リスク項目を簡潔に箇条書きで改行コードを使わずに改行してください
 
 # 出力形式
 {{
@@ -197,7 +196,7 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   "overall_risk": "High（リスク高） / Midium（リスク中） / Low（リスク小）",
   "total": {{
     "risk": "...",
-    "validation": "error / caution / warning / safety",
+    "validation": "error / caution / warning ",
     "reason": "..."
   }},
   "products": [
@@ -206,20 +205,20 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
 
       "quantity": {{
         "risk": "...",
-        "validation": "error / caution / warning / safety",
+        "validation": "error / caution / warning ",
         "reason": "..."
       }},
 
       "amount": {{
         "risk": "...",
-        "validation": "error / caution / warning / safety",
+        "validation": "error / caution / warning ",
         "reason": "..."
       }}
     }}
   ],
   "comments_risk": {{
       "risk": "...",
-    "validation": "error / caution / warning / safety",
+    "validation": "error / caution / warning ",
     "reason": "..."
   }},
   "mail_header": "...",
