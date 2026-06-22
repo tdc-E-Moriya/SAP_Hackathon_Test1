@@ -9,7 +9,7 @@ app = FastAPI()
 
 PDF_PATH = "./pdfs/sample.pdf"  # ← 固定PDF
 
-@app.post("/analyze")
+@app.GET("/analyze")
 def analyze_pdf():
     try:
         # ------------------------------
