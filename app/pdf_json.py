@@ -99,7 +99,7 @@ def extract_structured_data(text):
         ],
         temperature=0
     )
-
+    print(response.choices[0].message.content)
     return safe_json_parse(response.choices[0].message.content)
 
 
