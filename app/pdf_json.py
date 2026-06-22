@@ -29,6 +29,7 @@ def extract_text_from_bytes(file_bytes):
 # ------------------------------
 def safe_json_parse(text):
     try:
+        print(text)
         return json.loads(text)
     except:
         match = re.search(r"\{.*\}", text, re.S)
