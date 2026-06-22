@@ -146,9 +146,6 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   リスクの種類を1フレーズで分類（ラベル）
   ※原因カテゴリのみ（例：価格高騰、数量異常、費用未発生、構成変化）
   ※文章にしない
-
-
-■ 商品（物品）の場合
 - quantity：過去平均比での急増 → リスク
 - unit_price：上昇 → コスト増リスク
 - amount：増減 → 全体影響
@@ -156,13 +153,6 @@ def analyze_risk(current_json, past_file="data/pastdata.json"):
   - quantity
   - unit_price
   - amount
-
-■ 設置・調整工事費（個別ルール）
-- quantityは評価しない（常に1想定）
-- unit_price と amount のみ評価
-- 過去平均との差異・変動率を重視
-- anomaly_rate / z_score は amount を元に算出
-- 工事規模に対する金額の妥当性観点で評価
 
 ■ 全体評価
 - overall_risk,products[validation]は以下ルール
